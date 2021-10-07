@@ -39,7 +39,10 @@
 					<td><a href="/expenses/${i.id}"><c:out value="${ i.name }"></c:out></a></td>
 					<td><c:out value="${ i.vendor }"></c:out></td>
 					<td>$<c:out value="${ i.price }"></c:out></td>
-					<td><a href="/expenses/edit/${i.id}">Edit</a> <a href="/expenses/delete/${id}">Delete</a></td>
+					<td><a href="/expenses/edit/${i.id}">Edit</a>
+						<form action="/expenses/delete/${i.id}" method="post">
+    					<input type="hidden" name="_method" value="delete">
+    					<input type="submit" value="Delete"></form></td>
 				</tr>
 			</c:forEach>
 		</tbody>

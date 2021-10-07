@@ -38,23 +38,18 @@ public class PokeBookAPI {
     public PokeBook show(@PathVariable("id") Long id) {
         PokeBook expense = pokebookService.findPokeBook(id);
         return expense;
-    }
-    // other methods removed for brevity
-	
-	  @RequestMapping(value="/api/expenses/{id}", method=RequestMethod.PUT) public
-	  PokeBook update(
-	  
-	  @PathVariable("id") Long id,
-	  
-	  @RequestParam(value="name") String name,
-	  
-	  @RequestParam(value="vendor") String vendor,
-	  
-	  @RequestParam(value="description") String desc,
-	  
-	  @RequestParam(value="price") Double price) { PokeBook expense =
-	  pokebookService.updatePokeBook(id, name, vendor, desc, price); return
-	  expense; }
+        }
+    
+	@RequestMapping(value="/api/expenses/{id}", method=RequestMethod.PUT) public
+	PokeBook update(
+		@PathVariable("id") Long id,
+		@RequestParam(value="name") String name,
+		@RequestParam(value="vendor") String vendor,
+		@RequestParam(value="description") String desc,
+		@RequestParam(value="price") Double price) {
+		PokeBook expense = pokebookService.updatePokeBook(id, name, vendor, desc, price);
+		return expense;
+	}
 	  
 	  
 	  @RequestMapping(value="/api/expenses/{id}", method=RequestMethod.DELETE)
